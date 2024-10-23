@@ -1,0 +1,9 @@
+
+# Ensure consistent line endings
+* text=auto
+
+# Treat C and C++ files as text
+*.c text
+*.cpp text
+*.h text
+*.hpp text
