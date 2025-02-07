@@ -238,7 +238,7 @@ func createProjectStructure(data ProjectData) {
 			}
 
 			fmt.Println("Bootstrapping vcpkg...")
-			cmd = exec.Command(vcpkgPath + "\\bootstrap-vcpkg.bat")
+			cmd = exec.Command(vcpkgPath + "/bootstrap-vcpkg.sh")
 			if err := cmd.Run(); err != nil {
 				fmt.Printf("Error cloning vcpkg: %v\n", err)
 				os.Exit(1)
@@ -294,7 +294,7 @@ func createCMakePresets(data ProjectData) {
 		"configurePresets": []map[string]interface{}{
 			{
 				"name":             fmt.Sprintf("%s-Debug", data.ProjectName),
-				"generator":        "Visual Studio 17 2022",
+				"generator":        "Ninja",
 				"binaryDir":        "${sourceDir}/build/${presetName}",
 				"cacheVariables": map[string]interface{}{
 					"CMAKE_BUILD_TYPE":     "Debug",
